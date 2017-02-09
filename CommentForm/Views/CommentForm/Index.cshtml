@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Comments</h2>
 
 <div class="row">
     @foreach (var item in Model)
@@ -16,7 +16,9 @@
                     <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
                     <p>@Html.DisplayFor(modelItem => item.Comment)</p>
                     <p><span class="label label-default">@Html.DisplayNameFor(model => model.Priority): </span> &nbsp;<strong>@Html.DisplayFor(modelItem => item.Priority)</strong></p>
-                    <p><a href="#" class="btn btn-primary" role="button">Details</a></p>
+                    @*<p><a href="#" class="btn btn-primary" role="button">Details</a></p>*@
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn btn-primary" , role = "button"})
+                    @*@Html.ActionLink("Details", "Details", new { id = item.ID}, new { @class = "btn btn-primary", role = "button" })*@
                 </div>
             </div>
         </div>
